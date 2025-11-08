@@ -1,4 +1,4 @@
-// /scripts/components/pips.js — v9013
+// /scripts/components/pips.js — v9012
 // Simple visual "pip rail" system for score, streak, or miss tracking.
 
 export function createPips(target, count, opts = {}) {
