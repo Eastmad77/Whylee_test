@@ -1,9 +1,9 @@
-// /scripts/entitlements.js — v9010
+// /scripts/entitlements.js — v9012
 // Minimal client-side "isPro" check by reading /entitlements/{uid}
 
 import {
   db, doc, getDoc
-} from "/scripts/firebase-bridge.js?v=9010";
+} from "/scripts/firebase-bridge.js?v=9012";
 
 /** returns boolean */
 export async function isPro(uid) {
