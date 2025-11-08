@@ -1,0 +1,54 @@
+/* Whylee – Animations (v9010)
+   Used by overlays, loaders, modals, and content transitions. */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+@keyframes slideDown {
+  from { transform: translateY(-40px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0%,100% { opacity: 0.5; }
+  50%     { opacity: 1; }
+}
+
+.fade-in      { animation: fadeIn .35s ease forwards; }
+.fade-out     { animation: fadeOut .35s ease forwards; }
+.slide-up     { animation: slideUp .45s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+.slide-down   { animation: slideDown .45s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+.pulse        { animation: pulse 1.8s ease-in-out infinite; }
+
+/* Loader spinner */
+.spinner {
+  width: 38px;
+  height: 38px;
+  border: 3px solid rgba(255,255,255,0.2);
+  border-top-color: var(--brand);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Page fade transition helper */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity .3s ease;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Whylee — Daily Brain Bolt</title>
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" href="/media/icons/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/media/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="/style.css?v=170" />
+  <meta name="theme-color" content="#0A2A43" />
+</head>
+<body class="page-home brand-gradient">
+  <!-- Brand sweep overlay on page load -->
+  <div class="brand-sweep" aria-hidden="true"></div>
+
+  <!-- Header (kept slim on home) -->
+  <header class="app-header">
+    <div class="brand-mark">
+      <img src="/media/icons/app-icon.svg" alt="Whylee mark" />
+      <span class="brand-name">Whylee</span>
+    </div>
+
+    <!-- Manual theme toggle -->
+    <div class="theme-toggle" id="theme-toggle" role="button" aria-label="Toggle theme" title="Toggle theme">
+      <span class="ico" id="theme-ico">🌙</span>
+      <span class="lab" id="theme-lab">Dark</span>
+    </div>
+  </header>
+
+  <!-- SPLASH (tap to begin) -->
+  <section id="splash" class="splash is-visible" aria-label="Whylee splash screen">
+    <img class="splash-poster" src="/media/posters/v1/poster-start.jpg" alt="Tap to Begin" />
+    <div class="splash-cta">Tap to Begin</div>
+    <div class="splash-powered">Powered by Whylee</div>
+  </section>
+
+  <!-- HOME: Level select (locked progression) -->
+  <main id="home" class="home hidden">
+    <div class="home-hero">
+      <h1 class="title">Daily Brain Bolt</h1>
+      <p class="sub">Your smart companion. Every day.</p>
+    </div>
+
+    <div class="levels">
+      <!-- Level 1: always unlocked -->
+      <button class="level-card unlocked" data-level="1" id="level-1">
+        <div class="lv-num">Level 1</div>
+        <div class="lv-name">Quick Quiz</div>
+        <div class="lv-badge">Start</div>
+      </button>
+
+      <!-- Level 2: locked until Level 1 complete -->
+      <button class="level-card locked" data-level="2" id="level-2" disabled>
+        <div class="lv-num">Level 2</div>
+        <div class="lv-name">Memory Match</div>
+        <div class="lv-badge">Locked</div>
+      </button>
+
+      <!-- Level 3: locked until Level 2 complete (but Free users CAN play once they’ve reached it).
+           Pro removes ads; Free shows ads between rounds (stub). -->
+      <button class="level-card locked" data-level="3" id="level-3" disabled>
+        <div class="lv-num">Level 3</div>
+        <div class="lv-name">Challenge Mode</div>
+        <div class="lv-badge">Locked</div>
+      </button>
+    </div>
+  </main>
+
+  <!-- COUNTDOWN overlay -->
+  <div id="countdown" class="countdown hidden" aria-live="polite" aria-atomic="true">
+    <div class="cd-balls">
+      <span class="ball ball-3">3</span>
+      <span class="dot">•</span>
+      <span class="ball ball-2">2</span>
+      <span class="dot">•</span>
+      <span class="ball ball-go">GO!</span>
+    </div>
+  </div>
+
+  <!-- POSTER overlay (level unlock / interstitials) -->
+  <div id="poster-overlay" class="poster-overlay hidden" role="dialog" aria-modal="true">
+    <img id="poster-img" src="" alt="Poster" />
+    <button id="poster-continue" class="btn primary">Continue</button>
+  </div>
+
+  <script src="/scripts/entitlements.js?v=170"></script>
+  <script src="/scripts/shell.js?v=170"></script>
+  <script src="/scripts/app.js?v=170"></script>
+  <script src="/scripts/posterManager.js?v=170"></script>
+</body>
+</html>

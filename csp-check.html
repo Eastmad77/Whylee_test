@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="system">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CSP Check – Whylee</title>
+
+  <link rel="stylesheet" href="/styles/brand.css?v=9010" />
+  <link rel="stylesheet" href="/styles/style.css?v=9010" />
+  <link rel="stylesheet" href="/styles/animations.css?v=9010" />
+</head>
+<body>
+  <main class="container">
+    <div class="card">
+      <h1 class="h2">CSP / Posters Check</h1>
+      <p class="muted">Verifies Firebase modules and poster loading.</p>
+      <div class="mt-2">
+        <button id="btnLoadPoster" class="btn btn--brand">Show “poster-start”</button>
+      </div>
+      <div id="status" class="mt-2 muted" aria-live="polite"></div>
+    </div>
+  </main>
+
+  <script type="module" src="/scripts/firebase-config.js?v=9010"></script>
+  <script type="module" src="/scripts/firebase-bridge.js?v=9010"></script>
+  <script type="module" src="/scripts/posters.js?v=9010"></script>
+  <script type="module">
+    import { showPoster } from "/scripts/posters.js?v=9010";
+    const btn = document.getElementById("btnLoadPoster");
+    const out = document.getElementById("status");
+    btn.addEventListener("click", async () => {
+      out.textContent = "Loading poster-start…";
+      try { await showPoster("poster-start", { autohide: 2500 }); out.textContent = "OK"; }
+      catch (e) { out.textContent = "Error: " + e.message; }
+    });
+  </script>
+</body>
+</html>

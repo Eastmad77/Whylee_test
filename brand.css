@@ -1,0 +1,41 @@
+/* Whylee – Brand Theme (v9010) */
+
+:root {
+  --brand: #3AAE4D;        /* main Whylee green */
+  --brand-light: #4cc26b;
+  --brand-dark: #2b8a3d;
+  --accent: #4AA1FF;       /* secondary blue accent */
+  --accent-dark: #2E7AE6;
+  --warning: #f7c948;
+  --error: #e94d4d;
+  --success: #41d67a;
+  --bg-dark: #0B0F14;
+  --text-light: #f5f8fa;
+  --muted: #9eaaba;
+}
+
+/* Gradient backgrounds */
+.bg-gradient {
+  background: linear-gradient(135deg, var(--brand) 0%, var(--accent) 100%);
+  color: white;
+}
+
+.btn-brand {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-brand:hover {
+  background: var(--brand-light);
+  transform: translateY(-1px);
+}
+
+/* Accent utilities */
+.text-brand { color: var(--brand); }
+.text-accent { color: var(--accent); }
+.border-brand { border-color: var(--brand); }

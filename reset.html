@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="system">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Password reset – Whylee</title>
+
+  <link rel="stylesheet" href="/styles/brand.css?v=9010" />
+  <link rel="stylesheet" href="/styles/style.css?v=9010" />
+  <link rel="stylesheet" href="/styles/animations.css?v=9010" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/index.html">Whylee</a>
+    <nav class="nav">
+      <a href="/menu.html">Menu</a>
+      <a href="/leaderboard.html">Leaderboard</a>
+      <a href="/pro.html">Pro</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h1 class="h2">Reset password</h1>
+      <form id="form-reset" class="mt-2">
+        <label>Email</label>
+        <input id="resetEmail" type="email" autocomplete="email" required />
+        <div class="mt-3">
+          <button id="btnReset" type="submit" class="btn btn--brand">Send reset link</button>
+          <a class="btn btn--ghost" href="/signin.html">Back to sign in</a>
+        </div>
+        <div id="resetMsg" class="mt-2 muted"></div>
+      </form>
+    </div>
+  </main>
+
+  <footer><span id="app-version"></span></footer>
+
+  <script type="module" src="/scripts/firebase-config.js?v=9010"></script>
+  <script type="module" src="/scripts/firebase-bridge.js?v=9010"></script>
+  <script type="module" src="/scripts/app.js?v=9010"></script>
+  <script type="module" src="/scripts/auth/reset.js?v=9010"></script>
+</body>
+</html>

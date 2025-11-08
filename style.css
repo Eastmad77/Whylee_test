@@ -1,0 +1,134 @@
+/* Whylee – Base Styles (v9010)
+   Keep small & legible; dark/light via prefers-color-scheme.
+   ------------------------------------------------------------------ */
+
+:root{
+  --bg: #0b0f14;
+  --bg-soft:#111723;
+  --text:#e8edf3;
+  --muted:#a9b6c7;
+  --brand:#4cc26b;     /* Whylee green */
+  --brand-2:#3aa54f;
+  --accent:#4aa1ff;
+  --card:#121a27;
+  --border:#223149;
+  --shadow: 0 12px 40px rgba(0,0,0,.35);
+  --radius:16px;
+}
+
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f7f9fc;
+    --bg-soft:#ffffff;
+    --text:#0c1320;
+    --muted:#44536a;
+    --brand:#2f9a4a;
+    --brand-2:#2a8742;
+    --accent:#245eea;
+    --card:#ffffff;
+    --border:#e6edf5;
+    --shadow: 0 8px 24px rgba(12,19,32,.08);
+  }
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
+}
+
+/* Header / Nav */
+.site-header{
+  position:sticky; top:0; z-index:1000;
+  display:flex; align-items:center; gap:20px;
+  padding:14px 18px;
+  background:var(--bg-soft);
+  border-bottom:1px solid var(--border);
+}
+.brand{
+  display:inline-block;
+  font-weight:800; letter-spacing:.3px;
+  text-decoration:none; color:var(--text);
+}
+.nav{display:flex; gap:16px; margin-left:auto}
+.nav a{
+  color:var(--accent); text-decoration:none; font-weight:600;
+}
+.nav a:hover{ text-decoration:underline }
+
+/* Layout */
+.container{ width:min(1100px, 92vw); margin:32px auto }
+.container.narrow{ width:min(720px, 92vw) }
+
+h1{ font-size:clamp(28px, 4vw, 40px); margin:0 0 14px }
+h2{ font-size:clamp(22px, 3vw, 28px); margin:24px 0 10px }
+p{ margin:0 0 12px }
+.muted{ color:var(--muted) }
+
+/* Cards */
+.card{
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius); box-shadow:var(--shadow);
+  padding:18px;
+}
+.auth-card{ padding:22px }
+
+/* Forms */
+label{ display:block; font-weight:600; margin:16px 0 6px }
+input,select,textarea{
+  width:100%; padding:12px 12px;
+  background:transparent; color:var(--text);
+  border:1px solid var(--border); border-radius:12px;
+  outline:none;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in oklab, var(--accent) 25%, transparent);
+}
+
+button{
+  appearance:none; border:0; cursor:pointer;
+  padding:12px 16px; border-radius:12px;
+  background:var(--brand); color:#fff; font-weight:700;
+  transition:transform .06s ease, filter .12s ease;
+}
+button:hover{ filter:brightness(1.03) }
+button:active{ transform:translateY(1px) }
+button.secondary{
+  background:transparent; color:var(--accent);
+  border:1px solid var(--border);
+}
+
+/* Utility */
+.center{ display:grid; place-items:center }
+.row{ display:flex; gap:12px; flex-wrap:wrap }
+
+/* “Poster” overlay used by /scripts/posters.js */
+.overlay-poster{
+  position:fixed; inset:0; display:grid; place-items:center;
+  background:rgba(0,0,0,.7); z-index:9999; opacity:0;
+  transition:opacity .25s ease;
+}
+.overlay-poster[closing]{ pointer-events:none }
+
+/* Profile avatar grid */
+.ava-card{
+  display:flex; flex-direction:column; gap:8px; align-items:center;
+  width:140px; padding:12px; border-radius:14px;
+  background:var(--card); border:1px solid var(--border);
+}
+.ava-card.selected{ outline:2px solid var(--accent) }
+.ava-img{ width:112px; height:112px; object-fit:contain }
+.ava-name{ font-weight:600 }
+.ava-lock{
+  display:inline-flex; gap:6px; align-items:center;
+  color:var(--muted); font-size:12px;
+  padding:2px 6px; border:1px dashed var(--border); border-radius:999px;
+}
+
+/* Minor helpers */
+:is(a,button)[hidden]{ display:none !important }
+a{ color:var(--accent) }

@@ -1,0 +1,63 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'app.whylee'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "app.whylee"
+        minSdk 23
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+        }
+    }
+
+    packagingOptions {
+        resources.excludes += [
+            "META-INF/LICENSE*",
+            "META-INF/DEPENDENCIES",
+            "META-INF/NOTICE*"
+        ]
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+}
+
+dependencies {
+    // Bubblewrap / TWA base
+    implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.5.0'
+
+    // Consent (UMP)
+    implementation 'com.google.android.ump:user-messaging-platform:2.2.0'
+
+    // NEW: Play Billing + Google Mobile Ads
+    implementation 'com.android.billingclient:billing-ktx:6.2.1'
+    implementation 'com.google.android.gms:play-services-ads:23.1.0'
+
+    // AndroidX + Material
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'com.google.android.material:material:1.12.0'
+}

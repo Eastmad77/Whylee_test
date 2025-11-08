@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="system">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sprite Test – Whylee</title>
+
+  <link rel="stylesheet" href="/styles/brand.css?v=9010" />
+  <link rel="stylesheet" href="/styles/style.css?v=9010" />
+  <link rel="stylesheet" href="/styles/animations.css?v=9010" />
+  <style>
+    .sheet { display:grid; gap:12px; grid-template-columns: repeat(auto-fill,minmax(160px,1fr)); }
+    .tile { border:1px solid var(--card-border); border-radius:12px; padding:12px; background:var(--bg-surface); box-shadow: var(--shadow); }
+    .tile img { width:100%; height:auto; border-radius:8px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/index.html">Whylee</a>
+    <nav class="nav">
+      <a href="/menu.html">Menu</a>
+      <a href="/leaderboard.html">Leaderboard</a>
+      <a href="/profile.html">Profile</a>
+      <a href="/pro.html">Pro</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h1 class="h2">Sprite / Posters Test</h1>
+      <p class="muted">Ensures assets load under CSP and SW.</p>
+      <div id="spriteGrid" class="sheet mt-2"></div>
+    </div>
+  </main>
+
+  <footer><span id="app-version"></span></footer>
+
+  <script type="module" src="/scripts/firebase-config.js?v=9010"></script>
+  <script type="module" src="/scripts/firebase-bridge.js?v=9010"></script>
+  <script type="module" src="/scripts/app.js?v=9010"></script>
+  <script type="module" src="/scripts/posters.js?v=9010"></script>
+  <script type="module" src="/scripts/sprite-test.js?v=9010"></script>
+</body>
+</html>

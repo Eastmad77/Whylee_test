@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="system">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign In â€“ Whylee</title>
+
+  <link rel="stylesheet" href="/styles/brand.css?v=9010">
+  <link rel="stylesheet" href="/styles/style.css?v=9010">
+  <link rel="stylesheet" href="/styles/animations.css?v=9010">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/index.html">Whylee</a>
+    <nav class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/menu.html">Menu</a>
+      <a href="/pro.html">Pro</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </header>
+
+  <main class="container narrow">
+    <div class="card auth-card">
+      <h2 id="authTitle">Sign In</h2>
+      <p id="authSubtitle">Continue your Whylee journey</p>
+
+      <form id="authForm">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="you@example.com" required />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required />
+
+        <button type="submit" class="btn" id="submitBtn">Sign In</button>
+
+        <p class="auth-toggle">
+          Donâ€™t have an account? <a href="#" id="toggleSignup">Create one</a>
+        </p>
+
+        <p class="auth-forgot">
+          <a href="#" id="forgotPassword">Forgot password?</a>
+        </p>
+      </form>
+
+      <div id="message" class="hidden"></div>
+    </div>
+  </main>
+
+  <!-- Firebase boot -->
+  <script type="module" src="/scripts/firebase-config.js?v=9010"></script>
+  <script type="module" src="/scripts/firebase-bridge.js?v=9010"></script>
+
+  <!-- Page logic moved out of inline -->
+  <script type="module" src="/scripts/signin.js?v=9010"></script>
+</body>
+</html>

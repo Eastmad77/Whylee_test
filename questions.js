@@ -1,0 +1,33 @@
+﻿// questions.js â€” inline demo set (36) so no CSV fetch needed
+window.WhyleeQuestions = (function(){
+  const L1 = Array.from({length:12}, (_,i)=>({
+    Question:`Warm-up ${i+1}: 2 + ${i+1} = ?`,
+    Answers:[`${i+3}`,`${i+2}`,`${i+4}`,`${i}`],
+    Correct:0, Explanation:`Because 2 + ${i+1} = ${i+3}.`, Level:1
+  }));
+
+  const flags = [["ðŸ‡§ðŸ‡·","Brazil"],["ðŸ‡¨ðŸ‡¦","Canada"],["ðŸ‡ªðŸ‡¸","Spain"],["ðŸ‡®ðŸ‡¹","Italy"],["ðŸ‡¯ðŸ‡µ","Japan"],["ðŸ‡«ðŸ‡·","France"]];
+  const L2 = Array.from({length:12}, (_,i)=>({
+    Question:`Match the pair: Which country uses this flag? ${flags[i%flags.length][0]}`,
+    Answers:[flags[i%flags.length][1],"Germany","Norway","Chile"],
+    Correct:0, Explanation:`That flag is ${flags[i%flags.length][1]}.`, Level:2
+  }));
+
+  const L3 = [
+    {Q:"Which planet is known as the Red Planet?", A:["Mars","Venus","Jupiter","Saturn"], E:"Iron oxide makes Mars look red."},
+    {Q:"The largest ocean on Earth?", A:["Pacific","Atlantic","Indian","Arctic"], E:"The Pacific is the largest."},
+    {Q:"Speed of light is aboutâ€¦", A:["300,000 km/s","150,000 km/s","3,000 km/s","30,000 km/s"], E:"~3Ã—10âµ km/s."},
+    {Q:"H2O isâ€¦", A:["Water","Hydrogen","Oxygen","Salt"], E:"Hâ‚‚O is water."},
+    {Q:"Primary source of Earthâ€™s energy?", A:["Sun","Core","Moon","Tides"], E:"Solar radiation."},
+    {Q:"Who painted the Mona Lisa?", A:["Leonardo da Vinci","Michelangelo","Raphael","Monet"], E:"Leonardo da Vinci."},
+    {Q:"DNA stands forâ€¦", A:["Deoxyribonucleic acid","Dicarboxylic nitro acid","Dinucleic amino acid","None"], E:"Deoxyribonucleic acid."},
+    {Q:"Capital of Canada?", A:["Ottawa","Toronto","Vancouver","Montreal"], E:"Ottawa."},
+    {Q:"The chemical symbol for gold?", A:["Au","Ag","Gd","Go"], E:"Au."},
+    {Q:"Which gas do plants absorb?", A:["COâ‚‚","Oâ‚‚","Nâ‚‚","Hâ‚‚"], E:"Carbon dioxide."},
+    {Q:"Largest mammal?", A:["Blue whale","Elephant","Giraffe","Hippo"], E:"Blue whale."},
+    {Q:"Continent with the Sahara?", A:["Africa","Asia","Australia","South America"], E:"Africa."},
+  ].map(x=>({Question:x.Q, Answers:x.A, Correct:0, Explanation:x.E, Level:3}));
+
+  const ALL = [...L1, ...L2, ...L3];
+  return { async load(){ return ALL; } };
+})();
