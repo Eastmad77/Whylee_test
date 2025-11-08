@@ -1,6 +1,6 @@
-// /scripts/profile.js — v9010
-import { auth, db, doc, getDoc, setDoc, onAuthStateChanged } from "/scripts/firebase-bridge.js?v=9010";
-import { isPro } from "/scripts/entitlements.js?v=9010";
+// /scripts/profile.js — v9012
+import { auth, db, doc, getDoc, setDoc, onAuthStateChanged } from "/scripts/firebase-bridge.js?v=9012";
+import { isPro } from "/scripts/entitlements.js?v=9012";
 
 const AVATAR_SPEC_URL = "/media/avatars/avatars.json";
 const EMOJIS = ["🦊","🦉","🐼","🐱","🐯","🐺","🐲","🐻","⭐","⚡","🔥","💫","🌟","🏆","🎯"];
