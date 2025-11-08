@@ -1,9 +1,9 @@
-﻿// /scripts/leaderboard.js  â€” v9010 (safe, no-blank UI)
+﻿// /scripts/leaderboard.js  â€” v9012 (safe, no-blank UI)
 
 // ðŸ”— Absolute imports so Netlify rewrites never break modules
 import {
   db, collection, getDocs, query, orderBy, limit
-} from "/scripts/firebase-bridge.js?v=9010";
+} from "/scripts/firebase-bridge.js?v=9012";
 
 // ---------- Tiny DOM helpers ----------
 function ensureContainer() {
