@@ -1,4 +1,4 @@
-// /scripts/plan.js — v9010
+// /scripts/plan.js — v9012
 export const Plans = {
   free: {
     id: "free",
