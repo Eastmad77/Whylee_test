@@ -1,8 +1,8 @@
-// /scripts/milestones.js — v9010
+// /scripts/milestones.js — v9012
 // Determines unlocks (skins, badges, boosts) from user stats.
 // Pure evaluation + optional Firestore persistence.
 
-import { db, doc, updateDoc, serverTimestamp } from "/scripts/firebase-bridge.js?v=9010";
+import { db, doc, updateDoc, serverTimestamp } from "/scripts/firebase-bridge.js?v=9012";
 
 export const MILESTONES = [
   // Avatar variants (skins)
