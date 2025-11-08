@@ -1,6 +1,6 @@
-// /scripts/app.js — v9010 (feature-complete)
+// /scripts/app.js — v9012 (feature-complete)
 (() => {
-  const VERSION = "9010";
+  const VERSION = "9012";
 
   // Stamp version in footer if you have <span id="app-version">
   const vLabel = document.getElementById("app-version");
