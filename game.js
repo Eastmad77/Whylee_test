@@ -1,4 +1,4 @@
-// /scripts/game.js — Whylee Gameplay (v9010)
+// /scripts/game.js — Whylee Gameplay (v9012)
 // - Mounts HUD avatar badge
 // - Runs a session with QuestionEngine
 // - Updates XP/streak + milestones
@@ -6,16 +6,16 @@
 
 import {
   auth, db, doc, getDoc, updateDoc
-} from "/scripts/firebase-bridge.js?v=9010";
+} from "/scripts/firebase-bridge.js?v=9012";
 
-import { mountAvatarBadge } from "/scripts/components/avatarBadge.js?v=9010";
-import { initQuestionEngine } from "/scripts/ai/questionEngine.js?v=9010";
+import { mountAvatarBadge } from "/scripts/components/avatarBadge.js?v=9012";
+import { initQuestionEngine } from "/scripts/ai/questionEngine.js?v=9012";
 import {
   evaluateMilestones, persistMilestones
-} from "/scripts/milestones.js?v=9010";
+} from "/scripts/milestones.js?v=9012";
 import {
   showSuccessPoster, showGameOverPoster
-} from "/scripts/ui/posterManager.js?v=9010";
+} from "/scripts/ui/posterManager.js?v=9012";
 
 // ----- DOM refs (guard everything) -------------------------------------------
 const hudScore  = document.getElementById("hudScore");
