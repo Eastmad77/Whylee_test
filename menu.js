@@ -1,6 +1,6 @@
-// /scripts/menu.js — v9010
-import { isPro } from "/scripts/entitlements.js?v=9010";
-import { auth, onAuthStateChanged } from "/scripts/firebase-bridge.js?v=9010";
+// /scripts/menu.js — v
+import { isPro } from "/scripts/entitlements.js?v=";
+import { auth, onAuthStateChanged } from "/scripts/firebase-bridge.js?v=";
 
 const proBadge = document.getElementById("menuProBadge");
 
