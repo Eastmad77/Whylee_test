@@ -1,8 +1,8 @@
-// /scripts/leaderboardSync.js — v9010
+// /scripts/leaderboardSync.js — v
 // Pushes XP & streak to the public leaderboard after gameplay.
 // Writes/merges: /leaderboard/{uid} { name, avatarId, emoji, xp, streak, updatedAt }
 
-import { db, doc, setDoc, getDoc } from "/scripts/firebase-bridge.js?v=9010";
+import { db, doc, setDoc, getDoc } from "/scripts/firebase-bridge.js?v=";
 
 /**
  * Syncs player stats to leaderboard after a session.
