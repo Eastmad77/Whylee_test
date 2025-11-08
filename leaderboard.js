@@ -1,9 +1,10 @@
-﻿// /scripts/leaderboard.js  â€” v9012 (safe, no-blank UI)
+// /leaderboard.js — v9013 (safe, CSP-friendly, no-blank UI)
 
-// ðŸ”— Absolute imports so Netlify rewrites never break modules
+// Firestore: get DB from your bridge; get query helpers from gstatic (allowed by CSP)
+import { firestoreDb } from "/scripts/firebase-bridge.mjs?v=9013";
 import {
-  db, collection, getDocs, query, orderBy, limit
-} from "/scripts/firebase-bridge.js?v=9012";
+  collection, getDocs, query, orderBy, limit
+} from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
 
 // ---------- Tiny DOM helpers ----------
 function ensureContainer() {
@@ -50,64 +51,81 @@ function ensureContainer() {
   return { list, status };
 }
 
-function renderRows(listEl, rows) {
-  listEl.innerHTML = rows.map((r, idx) => {
+// Safer row rendering (no innerHTML for untrusted data)
+function renderRowsDOM(listEl, rows) {
+  listEl.replaceChildren();
+  rows.forEach((r, idx) => {
     const rank = idx + 1;
-    const name = r.displayName || r.name || r.uid?.slice?.(0, 6) || "Player";
+    const name = r.displayName || r.name || (r.uid && r.uid.slice ? r.uid.slice(0, 6) : "Player");
     const xp = (r.xp ?? r.score ?? 0);
-    const ava = r.avatarUrl || r.avatar || "/media/avatars/fox-default.png";
 
-    return `
-      <li class="lb-row">
-        <div>#${rank}</div>
-        <div class="flex" style="gap:10px; align-items:center;">
-          <img class="lb-ava" src="${ava}" alt="" />
-          <span class="lb-name">${escapeHtml(name)}</span>
-        </div>
-        <div class="lb-xp">${xp.toLocaleString()} XP</div>
-      </li>
-    `;
-  }).join("");
-}
+    // Restrict avatar to known-safe default if it doesn't look like a same-origin path
+    let ava = r.avatarUrl || r.avatar || "/media/avatars/fox-default.png";
+    if (typeof ava !== "string" || !ava.startsWith("/")) {
+      ava = "/media/avatars/fox-default.png";
+    }
 
-function escapeHtml(s) {
-  return String(s)
-    .replace(/&/g, "&amp;").replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    const li = document.createElement("li");
+    li.className = "lb-row";
+
+    const rankDiv = document.createElement("div");
+    rankDiv.textContent = `#${rank}`;
+
+    const mid = document.createElement("div");
+    mid.className = "flex";
+    mid.style.gap = "10px";
+    mid.style.alignItems = "center";
+
+    const img = document.createElement("img");
+    img.className = "lb-ava";
+    img.src = ava;
+    img.alt = "";
+    img.decoding = "async";
+    img.referrerPolicy = "no-referrer";
+
+    const span = document.createElement("span");
+    span.className = "lb-name";
+    span.textContent = String(name);
+
+    mid.append(img, span);
+
+    const xpDiv = document.createElement("div");
+    xpDiv.className = "lb-xp";
+    xpDiv.textContent = `${Number(xp).toLocaleString()} XP`;
+
+    li.append(rankDiv, mid, xpDiv);
+    listEl.appendChild(li);
+  });
 }
 
 // ---------- Main ----------
 async function loadLeaderboard() {
   const { list, status } = ensureContainer();
+  status.textContent = "Loading…";
 
   try {
-    status.textContent = "Loadingâ€¦";
-    // Collection can be either `leaderboard` (array docs) or `users` (with xp field)
-    // Try `leaderboard` first, fall back to `users`
+    const db = await firestoreDb();
+    if (!db) {
+      status.textContent = "Leaderboard is unavailable (no database).";
+      return;
+    }
+
     let rows = [];
 
     // Attempt 1: /leaderboard ordered by xp desc
     try {
-      const q1 = query(
-        collection(db, "leaderboard"),
-        orderBy("xp", "desc"),
-        limit(50)
-      );
+      const q1 = query(collection(db, "leaderboard"), orderBy("xp", "desc"), limit(50));
       const snap1 = await getDocs(q1);
       if (!snap1.empty) {
         rows = snap1.docs.map(d => ({ id: d.id, ...d.data() }));
       }
-    } catch (_) {
-      // ignore and try fallback
+    } catch {
+      /* ignore; try fallback */
     }
 
     // Attempt 2: /users ordered by xp desc (if no dedicated leaderboard)
     if (rows.length === 0) {
-      const q2 = query(
-        collection(db, "users"),
-        orderBy("xp", "desc"),
-        limit(50)
-      );
+      const q2 = query(collection(db, "users"), orderBy("xp", "desc"), limit(50));
       const snap2 = await getDocs(q2);
       rows = snap2.docs.map(d => ({ id: d.id, ...d.data() }));
     }
@@ -118,24 +136,24 @@ async function loadLeaderboard() {
       return;
     }
 
-    renderRows(list, rows);
+    renderRowsDOM(list, rows);
     status.textContent = "";
   } catch (err) {
-    // Handle Firestore permission issues & unexpected errors
     console.warn("[leaderboard] load failed:", err);
     const { list, status } = ensureContainer();
     list.innerHTML = "";
-    if (String(err?.message || err).includes("Missing or insufficient permissions")) {
+    const msg = String(err?.message || err);
+    if (msg.includes("Missing or insufficient permissions")) {
       status.textContent = "Leaderboard is temporarily unavailable (permissions). Please sign in or try again later.";
     } else {
-      status.textContent = "Couldnâ€™t load leaderboard. Please refresh.";
+      status.textContent = "Couldn't load leaderboard. Please refresh.";
     }
   }
 }
 
 // Run after DOM is ready
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", loadLeaderboard);
+  document.addEventListener("DOMContentLoaded", loadLeaderboard, { once: true });
 } else {
   loadLeaderboard();
 }
