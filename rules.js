@@ -1,6 +1,6 @@
 /**
  * =============================================================================
- * Whylee — Game Rules (v9010)
+ * Whylee — Game Rules (v9012)
  * Single source of truth for:
  *  - XP economy (per action, streak multipliers, level thresholds)
  *  - Daily streak logic (calendar-based, localStorage keys)
