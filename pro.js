@@ -1,6 +1,6 @@
-// /scripts/pro.js — v9010
-import { auth, onAuthStateChanged, getIdTokenResult } from "/scripts/firebase-bridge.js?v=9010";
-import { isPro } from "/scripts/entitlements.js?v=9010";
+// /scripts/pro.js — v9012
+import { auth, onAuthStateChanged, getIdTokenResult } from "/scripts/firebase-bridge.js?v=9012";
+import { isPro } from "/scripts/entitlements.js?v=9012";
 
 const els = {
   status: document.getElementById("proStatus"),
