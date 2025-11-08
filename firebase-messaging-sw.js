@@ -1,4 +1,4 @@
-﻿// firebase-messaging-sw.js â€” v9010
+﻿// firebase-messaging-sw.js â€” v9012
 importScripts("https://www.gstatic.com/firebasejs/11.0.1/firebase-app-compat.js");
 importScripts("https://www.gstatic.com/firebasejs/11.0.1/firebase-messaging-compat.js");
 
