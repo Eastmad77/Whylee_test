@@ -1,8 +1,8 @@
-// /scripts/onboarding.js — v9013 (CSP-safe, Firebase modular, UTF-8 clean)
+// /scripts/onboarding.js — v9012 (CSP-safe, Firebase modular, UTF-8 clean)
 
-import { firebaseAuth, firestoreDb } from "/scripts/firebase-bridge.mjs?v=9013";
-import { isPro } from "/scripts/entitlements.js?v=9013";
-import { requireSignedIn } from "/scripts/signin.js?v=9013"; // optional guard
+import { firebaseAuth, firestoreDb } from "/scripts/firebase-bridge.mjs?v=9012";
+import { isPro } from "/scripts/entitlements.js?v=9012";
+import { requireSignedIn } from "/scripts/signin.js?v=9012"; // optional guard
 
 import {
   doc, getDoc, setDoc, updateDoc, serverTimestamp
