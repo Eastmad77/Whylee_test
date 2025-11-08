@@ -1,0 +1,85 @@
+{
+  "v": 4,
+  "items": [
+    {
+      "id": "poster-start",
+      "src": "/media/posters/V1/poster-01-start.jpg",
+      "thumb": "/media/posters/V1/poster-01-start.jpg"
+    },
+    {
+      "id": "poster-mode",
+      "src": "/media/posters/V1/poster-02-mode.jpg",
+      "thumb": "/media/posters/V1/poster-02-mode.jpg"
+    },
+    {
+      "id": "poster-reward",
+      "src": "/media/posters/V1/poster-03-reward.jpg",
+      "thumb": "/media/posters/V1/poster-03-reward.jpg"
+    },
+    {
+      "id": "poster-reflection",
+      "src": "/media/posters/V1/poster-04-reflection.jpg",
+      "thumb": "/media/posters/V1/poster-04-reflection.jpg"
+    },
+    {
+      "id": "poster-upgrade",
+      "src": "/media/posters/V1/poster-05-upgrade.jpg",
+      "thumb": "/media/posters/V1/poster-05-upgrade.jpg"
+    },
+    {
+      "id": "poster-challenge",
+      "src": "/media/posters/V1/poster-06-challenge.jpg",
+      "thumb": "/media/posters/V1/poster-06-challenge.jpg"
+    },
+    {
+      "id": "poster-pro",
+      "src": "/media/posters/V1/poster-07-pro.jpg",
+      "thumb": "/media/posters/V1/poster-07-pro.jpg"
+    },
+    {
+      "id": "poster-levelup",
+      "src": "/media/posters/V1/poster-08-levelup.jpg",
+      "thumb": "/media/posters/V1/poster-08-levelup.jpg"
+    },
+    {
+      "id": "poster-community",
+      "src": "/media/posters/V1/poster-09-community.jpg",
+      "thumb": "/media/posters/V1/poster-09-community.jpg"
+    },
+    {
+      "id": "poster-brand",
+      "src": "/media/posters/V1/poster-10-brand.jpg",
+      "thumb": "/media/posters/V1/poster-10-brand.jpg"
+    },
+    {
+      "id": "poster-success",
+      "src": "/media/posters/V1/poster-success.jpg",
+      "thumb": "/media/posters/V1/poster-success.jpg"
+    },
+    {
+      "id": "poster-gameover",
+      "src": "/media/posters/V1/poster-gameover.jpg",
+      "thumb": "/media/posters/V1/poster-gameover.jpg"
+    },
+    {
+      "id": "poster-night",
+      "src": "/media/posters/V1/poster-night.jpg",
+      "thumb": "/media/posters/V1/poster-night.jpg"
+    },
+    {
+      "id": "poster-pro-next-challenge",
+      "src": "/media/posters/V1/poster-pro-next-challenge.jpg",
+      "thumb": "/media/posters/V1/poster-pro-next-challenge.jpg"
+    },
+    {
+      "id": "poster-pro-retry",
+      "src": "/media/posters/V1/poster-pro-retry.jpg",
+      "thumb": "/media/posters/V1/poster-pro-retry.jpg"
+    },
+    {
+      "id": "poster-pro-success",
+      "src": "/media/posters/V1/poster-pro-success.jpg",
+      "thumb": "/media/posters/V1/poster-pro-success.jpg"
+    }
+  ]
+}
